@@ -148,7 +148,7 @@ const Button = styled.button`
 `;
 
 export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit }) => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<Omit<Todo, 'id' | 'createdAt'>>({
+  const { register, handleSubmit, reset } = useForm<Omit<Todo, 'id' | 'createdAt'>>({
     defaultValues: {
       title: '',
       description: '',

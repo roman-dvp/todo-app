@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Todo } from '../../types/todo';
 import { EditTodoForm } from './EditTodoForm';
-import { ThemeColors } from '../../types/theme.ts';
 
 interface TodoItemProps {
   todo: Todo;

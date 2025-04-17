@@ -7,12 +7,14 @@ const initialState: TodoFilter = {
   search: '',
 };
 
-const filterSlice = createSlice({
+export const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
     setFilter: (state, action: PayloadAction<TodoFilter>) => {
-      return action.payload;
+      state.status = action.payload.status;
+      state.priority = action.payload.priority;
+      state.search = action.payload.search;
     },
   },
 });
