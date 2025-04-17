@@ -1,0 +1,146 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Git Workflow Rules 3.0
+
+## Branch Strategy
+
+We follow a modified GitFlow workflow:
+
+### Main Branches
+- `main`: Production-ready code, always stable
+- `develop`: Integration branch for features, always deployable
+
+### Supporting Branches
+- `feature/*`: New features or enhancements
+- `bugfix/*`: Fixes for issues in unreleased code
+- `hotfix/*`: Critical fixes for production issues
+- `release/*`: Release preparation
+- `docs/*`: Documentation updates
+- `refactor/*`: Code refactoring without changing behavior
+
+## Branch Naming Conventions
+
+- Use only English in branch names
+- Use lowercase with hyphens to separate words
+- Include the issue/ticket number when applicable
+- Keep names concise but descriptive
+
+Examples:
+```
+feature/task-filtering-component
+bugfix/date-picker-null-error
+hotfix/critical-login-issue
+release/v1.0.0
+docs/api-documentation
+refactor/redux-store-structure
+```
+
+## Commit Guidelines
+
+### Commit Message Format
+```
+type(scope): subject
+
+[optional body]
+
+[optional footer]
+```
+
+### Types
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, missing semicolons, etc.)
+- `refactor`: Code changes that neither fix bugs nor add features
+- `perf`: Performance improvements
+- `test`: Adding or correcting tests
+- `chore`: Changes to build process, auxiliary tools, libraries
+
+### Scope
+- Component or feature area affected (optional)
+- Examples: auth, task-list, form, api, etc.
+
+### Subject
+- Imperative, present tense: "add" not "added" or "adds"
+- No capital letter at the beginning
+- No period at the end
+- Maximum 50 characters
+
+### Body (Optional)
+- Separated from subject by blank line
+- Explain what and why vs. how
+- Wrap at 72 characters
+
+### Footer (Optional)
+- Reference issue tracker IDs
+- Note breaking changes with `BREAKING CHANGE:`
+
+Examples:
+```
+feat(task-list): add drag and drop functionality
+
+Implement react-beautiful-dnd to allow users to reorder tasks.
+This improves the UX by making task prioritization more intuitive.
+
+Refs: TODO-42
+```
+
+```
+fix(forms): resolve validation error on empty fields
+
+BREAKING CHANGE: form onSubmit now returns a Promise
+```
+
+## Pull Request Process
+
+1. Create a pull request from your feature branch to the appropriate target branch
+2. Fill in the PR template with all relevant information
+3. Assign at least one reviewer
+4. Link the PR to related issues
+5. Ensure all CI checks pass
+6. Address all review comments
+7. Merge only after approval
+8. Use squash and merge for cleaner history
+
+## Code Review Guidelines
+
+### For Authors
+- Keep PRs small and focused
+- Self-review your code before submission
+- Explain complex changes in the PR description
+- Respond to feedback promptly and professionally
+- Break large changes into smaller, incremental PRs
+
+### For Reviewers
+- Review code within 24 hours when possible
+- Be constructive and respectful in feedback
+- Focus on:
+  - Code correctness
+  - Test coverage
+  - Architecture and design
+  - Documentation
+  - Performance implications
+  - Security considerations
+- Approve only when all concerns are addressed
+
+## Merge Requirements
+
+- All CI checks must pass
+- At least one approval from a reviewer
+- No unresolved conversations
+- All tests must pass
+- Code coverage must not decrease
+- Documentation is updated
+
+## Tagging and Releases
+
+- Use semantic versioning (MAJOR.MINOR.PATCH)
+- Tag all releases in the format `v1.0.0`
+- Create a release branch for each release: `release/v1.0.0`
+- Merge release branches to both `main` and `develop`
+- Write detailed release notes
+
+This guide ensures consistent and effective use of Git across the project, improving code quality and team collaboration.

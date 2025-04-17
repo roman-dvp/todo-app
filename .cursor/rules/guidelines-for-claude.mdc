@@ -1,0 +1,53 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Guidelines for Using Claude 3.7 Sonnet in Cursor
+
+## General Instructions
+- Be concise and focused on the specific task at hand
+- Prioritize implementing functionality as described in project documentation
+- Follow established coding patterns in the project
+- Output well-documented, clean code with proper error handling
+- Always consider best practices for React development
+- Use TypeScript typing consistently throughout the codebase
+
+## Todo App Specific Instructions
+- Focus on frontend implementation only
+- Use local storage for data persistence
+- Keep the application simple but functional
+- Follow the project's component structure
+- Implement responsive design for all screen sizes
+- Ensure accessibility compliance
+- Maintain clean, maintainable code
+
+## When Generating Code
+- Follow the project's established coding style
+- Add appropriate comments to explain complex logic
+- Include TypeScript types for all functions and variables
+- Include error handling for edge cases
+- Break down complex components into smaller, reusable ones
+- Use clear, descriptive variable and function names
+
+## Project Structure
+- Place components in the appropriate directory based on their complexity and usage
+- Keep related files together (component, styles, tests)
+- Follow the atomic design pattern when creating new components
+- Keep Redux logic separate from UI components
+
+## Best Practices
+- Prefer functional components with hooks
+- Use React.memo for performance optimization when appropriate
+- Avoid prop drilling by using context or Redux
+- Use CSS-in-JS for styling (Styled Components)
+- Follow React's best practices for state management
+- Use dependency injection for services when possible
+
+## Testing
+- Write tests for all new functionality
+- Focus on testing behavior, not implementation details
+- Use React Testing Library for component tests
+- Include both happy path and error cases in tests
+
+This rule assists Claude in providing code and solutions that align with the Todo App project requirements and best practices.

@@ -1,15 +1,24 @@
+
 {
 	"mcpServers": {
-		"svelte-docs": {
-			"command": "npx",
-			"args": ["-y", "mcp-svelte-docs"],
-			"env": {
-				"LIBSQL_URL": "file:local.db"
-			}
-		},
-		"duckduckgo-search": {
-			"command": "npx",
-			"args": ["-y", "duckduckgo-mpc-server"]
+	  "svelte-docs": {
+		"command": "npx",
+		"args": ["-y", "mcp-svelte-docs"],
+		"env": {
+		  "LIBSQL_URL": "file:local.db"
+		}
+	  },
+	  "duckduckgo-search": {
+		"command": "npx",
+		"args": ["-y", "duckduckgo-mcp-server"]
+	  },
+	  "atlassian": {
+		"command": "npx",
+		"args": ["-y", "@anthropic-ai/mcp-atlassian"],
+		"env": {
+		  "CONFLUENCE_URL": "https://moartools.atlassian.net",
+		  "JIRA_URL": "https://moartools.atlassian.net"
 		}
 	}
+  }
 }
