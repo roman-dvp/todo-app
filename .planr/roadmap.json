@@ -1,0 +1,88 @@
+{
+    "name": "Todo App Development Roadmap",
+    "description": "Development roadmap for React Todo application with localStorage persistence",
+    "tasks": [
+      {
+        "id": "create-task",
+        "title": "Implement task creation functionality",
+        "file": ".planr/stories/create-task.md",
+        "status": "todo",
+        "created": "2025-04-17",
+        "updated": "2025-04-17",
+        "notes": "Core functionality to create new tasks with title, description, priority, and due date"
+      },
+      {
+        "id": "task-list",
+        "title": "Implement task list display and management",
+        "file": ".planr/stories/task-list.md",
+        "status": "todo",
+        "created": "2025-04-17",
+        "updated": "2025-04-17",
+        "notes": "Display tasks in a list with ability to manage them"
+      },
+      {
+        "id": "filtering-search",
+        "title": "Implement task filtering and search",
+        "file": ".planr/stories/filtering-search.md",
+        "status": "todo",
+        "created": "2025-04-17",
+        "updated": "2025-04-17",
+        "notes": "Allow filtering and searching tasks by various criteria"
+      },
+      {
+        "id": "edit-task",
+        "title": "Implement task editing functionality",
+        "file": ".planr/stories/edit-task.md",
+        "status": "todo",
+        "created": "2025-04-17",
+        "updated": "2025-04-17",
+        "notes": "Allow users to edit existing tasks"
+      },
+      {
+        "id": "theme-toggle",
+        "title": "Implement light/dark theme toggle",
+        "file": ".planr/stories/theme-toggle.md",
+        "status": "todo",
+        "created": "2025-04-17",
+        "updated": "2025-04-17",
+        "notes": "Add ability to switch between light and dark themes"
+      },
+      {
+        "id": "delete-task",
+        "title": "Implement task deletion functionality",
+        "file": ".planr/stories/delete-task.md",
+        "status": "todo",
+        "created": "2025-04-17",
+        "updated": "2025-04-17",
+        "notes": "Allow users to delete tasks with confirmation"
+      },
+      {
+        "id": "local-storage",
+        "title": "Implement localStorage persistence",
+        "file": ".planr/stories/local-storage.md",
+        "status": "todo",
+        "created": "2025-04-17",
+        "updated": "2025-04-17",
+        "notes": "Save and load all data to/from localStorage"
+      }
+    ],
+    "phases": [
+      {
+        "name": "Phase 1: Core Functionality",
+        "tasks": ["create-task", "task-list", "edit-task", "delete-task"]
+      },
+      {
+        "name": "Phase 2: Enhanced Features",
+        "tasks": ["filtering-search", "theme-toggle", "local-storage"]
+      }
+    ],
+    "dependencies": {
+      "create-task": [],
+      "task-list": ["create-task"],
+      "filtering-search": ["task-list"],
+      "edit-task": ["create-task"],
+      "theme-toggle": [],
+      "delete-task": ["task-list"],
+      "local-storage": ["create-task", "edit-task", "delete-task"]
+    }
+  }
