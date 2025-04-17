@@ -25,6 +25,8 @@ const FilterContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
   }
 `;
 
@@ -32,6 +34,10 @@ const SearchGroup = styled.div`
   position: relative;
   flex: 1;
   min-width: 200px;
+
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
 `;
 
 const SearchIcon = styled.span`
@@ -66,6 +72,11 @@ const SearchInput = styled.input`
   &::placeholder {
     color: ${props => props.theme.textMuted};
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) calc(var(--spacing-md) * 2.5);
+  }
 `;
 
 const FilterGroup = styled.div`
@@ -88,6 +99,7 @@ const FilterSection = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+    min-width: 100%;
   }
 `;
 
@@ -98,6 +110,10 @@ const FilterLabel = styled.label`
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const Select = styled.select`
@@ -120,6 +136,11 @@ const Select = styled.select`
   option {
     background-color: ${props => props.theme.cardBackground};
     color: ${props => props.theme.text};
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
     padding: var(--spacing-xs) var(--spacing-sm);
   }
 `;

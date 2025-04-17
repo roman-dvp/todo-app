@@ -16,10 +16,13 @@ import { GlobalStyle } from './styles/GlobalStyle';
 import { RootState } from './store';
 
 const AppContainer = styled.div`
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-xl);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: 768px) {
     padding: var(--spacing-md);
@@ -30,6 +33,12 @@ const Header = styled.header`
   text-align: center;
   margin-bottom: var(--spacing-xl);
   position: relative;
+  padding: 0 var(--spacing-md);
+
+  @media (max-width: 768px) {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
 `;
 
 const Title = styled.h1`
@@ -40,6 +49,7 @@ const Title = styled.h1`
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
   }
 `;
 
@@ -48,6 +58,9 @@ const MainContent = styled.main`
   grid-template-columns: 350px 1fr;
   gap: var(--spacing-xl);
   position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
 
   &::after {
     content: '';
@@ -62,10 +75,16 @@ const MainContent = styled.main`
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+    max-width: 600px;
 
     &::after {
       display: none;
     }
+  }
+
+  @media (max-width: 768px) {
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
   }
 `;
 
@@ -73,6 +92,10 @@ const SidePanel = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+
+  @media (max-width: 768px) {
+    gap: var(--spacing-md);
+  }
 `;
 
 const MainPanel = styled.div`
@@ -83,6 +106,10 @@ const MainPanel = styled.div`
 
   @media (max-width: 1024px) {
     padding-left: 0;
+  }
+
+  @media (max-width: 768px) {
+    gap: var(--spacing-md);
   }
 `;
 

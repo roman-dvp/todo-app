@@ -24,7 +24,7 @@ const slideIn = keyframes`
 
 const StyledTodoItem = styled.div<{ completed: boolean }>`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: var(--spacing-md);
   margin: var(--spacing-sm) 0;
   background: ${props => props.theme.cardGradient};
@@ -35,12 +35,23 @@ const StyledTodoItem = styled.div<{ completed: boolean }>`
   overflow: hidden;
   animation: ${slideIn} 0.3s ease-out;
   border: 1px solid ${props => props.theme.borderLight};
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: ${props => props.theme.shadowHover};
     background: ${props => props.theme.cardBackgroundHover};
     border-color: ${props => props.theme.borderActive};
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: var(--spacing-sm);
+    
+    &:hover {
+      transform: none;
+    }
   }
 `;
 
@@ -124,6 +135,12 @@ const Content = styled.div`
   flex: 1;
   margin-right: var(--spacing-md);
   min-width: 0;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    width: 100%;
+    order: 2;
+  }
 `;
 
 const Title = styled.h3<{ completed: boolean }>`
@@ -135,6 +152,12 @@ const Title = styled.h3<{ completed: boolean }>`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    white-space: normal;
+    word-wrap: break-word;
+  }
 `;
 
 const Description = styled.p`
@@ -144,6 +167,11 @@ const Description = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    white-space: normal;
+    word-wrap: break-word;
+  }
 `;
 
 const DateInfo = styled.span`
@@ -151,6 +179,17 @@ const DateInfo = styled.span`
   color: ${props => props.theme.textLight};
   margin-top: var(--spacing-xs);
   display: block;
+`;
+
+const TopSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+
+  @media (max-width: 768px) {
+    order: 1;
+  }
 `;
 
 const PriorityBadge = styled.span<{ priority: string }>`
@@ -187,22 +226,27 @@ const PriorityBadge = styled.span<{ priority: string }>`
     }
   }};
 
-  &::before {
-    content: ${props => {
-      switch (props.priority) {
-        case 'high': return '"🔴"';
-        case 'medium': return '"🟡"';
-        case 'low': return '"🔵"';
-        default: return '""';
-      }
-    }};
-    font-size: 0.9rem;
+  @media (max-width: 768px) {
+    order: 3;
+    margin-right: 0;
+    align-self: flex-start;
   }
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
   gap: var(--spacing-sm);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    order: 4;
+    margin-top: var(--spacing-sm);
+    
+    button {
+      flex: 1;
+      justify-content: center;
+    }
+  }
 `;
 
 const Button = styled.button<{ variant?: 'danger' | 'primary' }>`
@@ -271,20 +315,22 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, on
 
   return (
     <StyledTodoItem completed={todo.completed}>
-      <PriorityIndicator priority={todo.priority} />
-      <CheckboxContainer>
-        <HiddenCheckbox
-          checked={todo.completed}
-          onChange={handleToggle}
-          id={`todo-${todo.id}`}
-        />
-        <StyledCheckbox checked={todo.completed} onClick={handleToggle} />
-      </CheckboxContainer>
-      <Content>
-        <Title completed={todo.completed}>{todo.title}</Title>
-        {todo.description && <Description>{todo.description}</Description>}
-        <DateInfo>Created: {formatDate(todo.createdAt)}</DateInfo>
-      </Content>
+      <TopSection>
+        <PriorityIndicator priority={todo.priority} />
+        <CheckboxContainer>
+          <HiddenCheckbox
+            checked={todo.completed}
+            onChange={handleToggle}
+            id={`todo-${todo.id}`}
+          />
+          <StyledCheckbox checked={todo.completed} onClick={handleToggle} />
+        </CheckboxContainer>
+        <Content>
+          <Title completed={todo.completed}>{todo.title}</Title>
+          {todo.description && <Description>{todo.description}</Description>}
+          <DateInfo>Created: {formatDate(todo.createdAt)}</DateInfo>
+        </Content>
+      </TopSection>
       <PriorityBadge priority={todo.priority}>
         {todo.priority}
       </PriorityBadge>

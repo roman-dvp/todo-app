@@ -24,18 +24,31 @@ const Form = styled.form`
     box-shadow: ${props => props.theme.shadowHover};
     border-color: ${props => props.theme.borderActive};
   }
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
 `;
 
 const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+
+  @media (max-width: 768px) {
+    gap: var(--spacing-xs);
+  }
 `;
 
 const Label = styled.label`
   font-weight: 500;
   color: ${props => props.theme.text};
   font-size: 0.9rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const Input = styled.input`
@@ -55,6 +68,11 @@ const Input = styled.input`
 
   &::placeholder {
     color: ${props => props.theme.textMuted};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 `;
 
@@ -78,6 +96,12 @@ const TextArea = styled.textarea`
   &::placeholder {
     color: ${props => props.theme.textMuted};
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    min-height: 80px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
 `;
 
 const Select = styled.select`
@@ -100,6 +124,11 @@ const Select = styled.select`
     background-color: ${props => props.theme.cardBackground};
     color: ${props => props.theme.text};
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -107,6 +136,17 @@ const ButtonGroup = styled.div`
   gap: var(--spacing-md);
   justify-content: flex-end;
   margin-top: var(--spacing-md);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+
+    button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
 `;
 
 const Button = styled.button<{ variant?: 'danger' | 'primary' }>`

@@ -9,6 +9,12 @@ interface TodoFormProps {
 
 const FormContainer = styled.div`
   margin-bottom: var(--spacing-lg);
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    margin-bottom: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+  }
 `;
 
 const Form = styled.form`
@@ -20,9 +26,16 @@ const Form = styled.form`
   border-radius: var(--border-radius-md);
   box-shadow: ${props => props.theme.shadow};
   transition: all ${props => props.theme.transitionDuration} ${props => props.theme.transitionTiming};
+  width: 100%;
+  max-width: 100%;
 
   &:focus-within {
     box-shadow: ${props => props.theme.shadowHover};
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
   }
 `;
 
